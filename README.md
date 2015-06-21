@@ -22,7 +22,13 @@ UCI HAR Dataset
 ## Files provided
 The following files are provided:
 
-
+1. `Codebook.md`: Data dictionary of the data sets provided 
+2. `Dataset.txt`: All the observations corresponding to the features requested
+3. `Dataset_test.gif`: Matrix representation of the test dataset
+4. `Dataset_train.gif`: Matrix representation of the training dataset
+5. `FinalDataset.txt`: Data set containing the average of each variable grouped by activity and subject
+6. `REAME.md`: This file
+7. `run_analysis.R`: R script to process the data
 
 ## The process
 The process consists of reading the text files into intermediate data.frame objects `(activity_labels, features, X_test_matrix, subject_test, Y_test,
