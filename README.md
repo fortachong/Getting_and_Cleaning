@@ -31,6 +31,23 @@ The following files are provided:
 7. `run_analysis.R`: R script to process the data
 
 ## The process
+One thing to take into consideration is that the layout of the final data could be something like this:
+
+```
+	Activity	Subject		FeatureName			Measurement
+	STANDING	1			tBodyAcc.mean__.X	0.25717778
+	STANDING	1			tBodyAcc.mean__.Y	-0.02328523
+	STANDING	1			tBodyAcc.mean__.Z	-0.014653762
+	STANDING	1			tBodyAcc.std__.X	-0.938404
+	...
+	...
+	...
+```
+
+This format would be more appropriate for example when plotting and grouping by the type of variable. Nevertheless
+using the tidy data principle that every variable has to correspond to a column, in our data sets we use 1 column for each variable. So 
+if we have 66 variable names, we have 66 columns accordingly.
+
 The process consists of reading the text files into intermediate data.frame objects `(activity_labels, features, X_test_matrix, subject_test, Y_test,
  X_train_matrix, subject_train, Y_train)`
  
