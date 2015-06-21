@@ -44,18 +44,18 @@ One thing to take into consideration is that the layout of the final data could 
 	...
 ```
 
-This format would be more appropriate for example when plotting and grouping by the type of variable. Nevertheless
+This format would be more appropriate for example when plotting and grouping by the type of variable. Nevertheless,
 using the tidy data principle that every variable has to correspond to a column, in our data sets we use 1 column for each variable. So 
 if we have 66 variable names, we have 66 columns accordingly.
 
 The process consists of reading the text files into intermediate data.frame objects `(activity_labels, features, X_test_matrix, subject_test, Y_test,
  X_train_matrix, subject_train, Y_train)`
  
-One key point to select the data corresponding to the features on the mean and standard deviation (according to the point 2)
+One key point before selecting the data on the mean and standard deviation (according to the point 2)
 is to transform the names of the features replacing the charactes `","` and `"-"` by `"."` and
 characters `"("` and `")"` by `"_"`. This is necessary to make things easier with column names referencing. 
 
-Once the requested columns have been selected, we used two data.frame objects containing the merged data, one for the test data `(Dataset_test)`
+Once the requested columns have been selected, we used two data.frame objects containing the merged data in an intermediate step, one for the test data `(Dataset_test)`
 and one for the training data `(Dataset_train)`.
 
 The format for the test data `(Dataset_test)` is:
