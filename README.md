@@ -1,5 +1,7 @@
 # Jorge Chong
-# Getting_and_Cleaning
+# Coursera
+# Getting and Cleaning Data
+
 Project for Coursera's Getting and Cleaning Data
 
 
