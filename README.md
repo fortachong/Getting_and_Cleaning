@@ -29,20 +29,26 @@ The process consists of reading the text files into intermediate data.frame obje
  X_train_matrix, subject_train, Y_train)`
  
 One key point to select the data corresponding to the features on the mean and standard deviation (according to the point 2)
-is to transform the names of the features replacing the charactes "," and "-" by "." and
-characters "(" and ")" by "_". This is necessary to make things easier with column names referencing.
+is to transform the names of the features replacing the charactes `","` and `"-"` by `"."` and
+characters `"("` and `")"` by `"_"`. This is necessary to make things easier with column names referencing. 
 
-Once the 
+Once the requested columns have been selected, we used two data.frame objects containing the merged data, one for the test data `(Dataset_test)`
+and one for the training data `(Dataset_train)`.
 
-Here are the data for the project: 
+The format for the test data `(Dataset_test)` is:
 
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+![Dataset Matrix representation](https://github.com/fortachong/Getting_and_Cleaning/blob/master/Dataset_test.gif)
 
-You should create one R script called run_analysis.R that does the following. 
-Merges the training and the test sets to create one data set.
-Extracts only the measurements on the mean and standard deviation for each measurement. 
-Uses descriptive activity names to name the activities in the data set
-Appropriately labels the data set with descriptive variable names. 
-From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+Where every row represents an observation (2947 test observations), being the first column the subject id from that observation, 
+the next 66 columns correspond to the selected features (those that have the functions mean() and std() in their names). 
+The last column correspond to the labels representing the 6 activities. This column has been transformed to a factor with the labels specified in the `activity_labels.txt`
 
-Good luck!
+Similarly for the training data `(Dataset_train)` we have:
+
+![Dataset Matrix representation](https://github.com/fortachong/Getting_and_Cleaning/blob/master/Dataset_train.gif)
+
+The structure is similar, but now we have 7352 observations.
+
+The two data frames are merged in `Dataset` with the first 2947 rows corresponding to the test data and the next 7352 rows corresponding to the training data. The dimension of this object is 10299 rows by 68 columns. 
+
+The final data set `FinalDataset` consists of the 180 (30 subjects x 6 activities) means of the 66 measurements selected. It is obtained by applying an aggregation over `Dataset` in order to get the `mean()` of the 66 selected features grouping by activity and subject. The dimension is 180 rows by 68 columns. The first two columns are the activity labels and the subject id. The next 66 columns are labeled according to the features selected.
